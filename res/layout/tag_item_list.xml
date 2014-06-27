@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:layout_marginTop="10dip">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="61dip"
+            android:clickable="true"
+            android:background="#FFFFFF">
+
+        <ImageView
+                android:id="@+id/tag_item_list_img"
+                android:layout_width="21dip"
+                android:layout_height="21dip"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/tag_32"/>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tag_item_list_img"
+                android:layout_marginLeft="5dip"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    >
+                <TextView
+                        android:id="@+id/tag_item_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dip"
+                        android:layout_marginLeft="20dip"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:textStyle="bold"/>
+
+                <ImageView
+                        android:id="@+id/tag_item_delete_img_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dip"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/delete_32"/>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

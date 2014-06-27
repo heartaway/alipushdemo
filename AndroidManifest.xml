@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.taobao.tae.alipush.demo"
+          android:versionCode="1"
+          android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="15"/>
+    <application android:name="com.taobao.tae.alipush.demo.AlipushDemoApplication"
+                 android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                 android:allowBackup="true"
+                 android:label="@string/app_name"
+                 android:icon="@drawable/icon">
+        <activity android:name="com.taobao.tae.alipush.demo.activity.MainActivity"
+                  android:label="@string/app_name"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- reboot start push server -->
+        <receiver android:name="com.alibaba.cpush.android.receiver.CPushBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- message reciever -->
+        <receiver android:name="com.taobao.tae.alipush.demo.reciever.MessageReciever">
+            <intent-filter>
+                <action android:name="com.alibaba.cpush.notication"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 服务配置 -->
+        <service android:name="com.alibaba.cpush.android.ssm.ServiceContainer"
+                 android:exported="true">
+            <meta-data android:name="appID" android:value="@integer/appId" />
+            <meta-data android:name="appKey" android:value="@string/appKey" />
+            <intent-filter>
+                <action android:name="com.alibaba.cpush.ACTION.service" />
+            </intent-filter>
+        </service>
+
+        <service android:name="com.alibaba.cpush.android.service.CPushMessageHandleService" android:exported="true"/>
+
+    </application>
+
+
+    <!-- aliyun permission -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- 基础信息权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+</manifest>

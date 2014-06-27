@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:id="@+id/notice_header_div"
+            >
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="fill_parent"
+                        android:layout_height="43dip"
+                        android:background="#3c3c3c"
+                        android:gravity="center"
+                        android:id="@+id/header_layout_ry">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:text="通知记录"
+
+                        android:textColor="#FFFFFF"
+                        android:textSize="16dip"
+                        android:gravity="center_vertical"
+                        android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout
+            android:id="@+id/notice_menu_div"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            >
+        <include layout="@layout/menu"></include>"
+    </LinearLayout>
+
+    <FrameLayout
+            android:id="@+id/notice_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/notice_header_div"
+            android:layout_above="@+id/notice_menu_div">
+        <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/notice_datas"/>
+    </FrameLayout>
+
+
+</RelativeLayout>

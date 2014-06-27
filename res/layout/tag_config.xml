@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/config_tag_add_id"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:background="#e2e9eb"
+                android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="43dip"
+            android:background="#3c3c3c"
+            android:id="@+id/header_layout_ry"
+            >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="设备标签"
+                android:textSize="16dip"
+                android:textColor="#FFFFFF"
+                android:gravity="center_vertical"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+        <TextView
+                android:id="@+id/config_tag_add_cancel_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="返回"
+                android:textColor="#FFFFFF"
+                android:textSize="16dip"
+                android:layout_marginLeft="20dip"
+                android:gravity="center_vertical"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                />
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/tag_config_add_div"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dip"
+            android:layout_marginTop="60dip"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+        <EditText
+                android:id="@+id/config_tag_add_content_txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:text=""
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_marginRight="40dip"
+                android:singleLine="true"
+                android:inputType="text"/>
+
+        <ImageView
+                android:id="@+id/config_tag_add_save_img_btn"
+                android:layout_toRightOf="@+id/config_tag_add_content_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-36dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/add_32"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+            android:id="@+id/tags_on_device_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/tag_config_add_div"
+            android:layout_marginTop="10dip"
+            android:layout_marginBottom="40dip">
+        <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/tag_datas"/>
+    </FrameLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:id="@+id/message_header_div"
+            >
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="fill_parent"
+                        android:layout_height="43dip"
+                        android:background="#3c3c3c"
+                        android:gravity="center"
+                        android:id="@+id/header_layout_ry">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="消息记录"
+                    android:textSize="16dip"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout
+            android:id="@+id/message_menu_div"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            >
+        <include layout="@layout/menu"></include>"
+    </LinearLayout>
+
+
+    <FrameLayout
+            android:id="@+id/message_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/message_header_div"
+            android:layout_above="@+id/message_menu_div">
+        <!--<include layout="@layout/message_item_list"/>-->
+        <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/message_datas"/>
+    </FrameLayout>
+
+
+</RelativeLayout>

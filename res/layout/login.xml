@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/login_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e2e9eb"
+                android:orientation="vertical">
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            >
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="43dip"
+                android:background="#3c3c3c"
+                android:gravity="center"
+                android:id="@+id/header_layout_ry">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="个人中心"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16dip"
+                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout
+            android:id="@+id/footbar_layout_ly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            >
+        <include layout="@layout/menu"></include>"
+    </LinearLayout>
+    <RelativeLayout
+            android:id="@+id/user_login_div"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dip"
+            android:layout_marginTop="50dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/background_login_div">
+
+        <EditText
+                android:id="@+id/login_account"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="账号"
+                android:text=""
+                android:singleLine="true"
+                android:inputType="text"/>
+        <!-- 登录button -->
+        <Button
+                android:id="@+id/login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="8dip"
+                android:layout_below="@id/login_account"
+                android:text="登录"
+                android:textColor="@android:color/white"
+                android:background="@drawable/background_login_btn"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dip"
+            android:layout_below="@id/user_login_div"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="绑定账号后，可通过指定账号推送。"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">云推送Demo</string>
+
+    <integer name="appId">3214</integer>
+    <string name="appKey">8F39AAB271013EAF0609370DA5B7211A</string>
+
+
+    <string name="message_list">消息列表</string>
+    <string name="notice_list">通知列表</string>
+    <string name="other">其他</string>
+    <string name="login_username">账号</string>
+
+</resources>

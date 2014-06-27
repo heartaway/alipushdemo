@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_alipushdemo" default="compile.module.alipushdemo">
+  <dirname property="module.alipushdemo.basedir" file="${ant.file.module_alipushdemo}"/>
+  
+  <property name="module.jdk.home.alipushdemo" value="${jdk.home.android_api_19_platform}"/>
+  <property name="module.jdk.bin.alipushdemo" value="${jdk.bin.android_api_19_platform}"/>
+  <property name="module.jdk.classpath.alipushdemo" value="jdk.classpath.android_api_19_platform"/>
+  
+  <property name="compiler.args.alipushdemo" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="alipushdemo.output.dir" value="${module.alipushdemo.basedir}/out/production/alipushdemo"/>
+  <property name="alipushdemo.testoutput.dir" value="${module.alipushdemo.basedir}/out/test/alipushdemo"/>
+  
+  <path id="alipushdemo.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="alipushdemo.module.production.classpath">
+    <path refid="${module.jdk.classpath.alipushdemo}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  <path id="alipushdemo.runtime.production.module.classpath">
+    <pathelement location="${alipushdemo.output.dir}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  <path id="alipushdemo.module.classpath">
+    <path refid="${module.jdk.classpath.alipushdemo}"/>
+    <pathelement location="${alipushdemo.output.dir}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  <path id="alipushdemo.runtime.module.classpath">
+    <pathelement location="${alipushdemo.testoutput.dir}"/>
+    <pathelement location="${alipushdemo.output.dir}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.alipushdemo">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.alipushdemo">
+    <patternset refid="excluded.from.module.alipushdemo"/>
+  </patternset>
+  
+  <path id="alipushdemo.module.sourcepath">
+    <dirset dir="${module.alipushdemo.basedir}">
+      <include name="gen"/>
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.alipushdemo" depends="compile.module.alipushdemo.production,compile.module.alipushdemo.tests" description="Compile module alipushdemo"/>
+  
+  <target name="compile.module.alipushdemo.production" depends="register.custom.compilers" description="Compile module alipushdemo; production classes">
+    <mkdir dir="${alipushdemo.output.dir}"/>
+    <javac2 destdir="${alipushdemo.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.alipushdemo}/javac">
+      <compilerarg line="${compiler.args.alipushdemo}"/>
+      <bootclasspath refid="alipushdemo.module.bootclasspath"/>
+      <classpath refid="alipushdemo.module.production.classpath"/>
+      <src refid="alipushdemo.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.alipushdemo"/>
+    </javac2>
+    
+    <copy todir="${alipushdemo.output.dir}">
+      <fileset dir="${module.alipushdemo.basedir}/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.alipushdemo.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.alipushdemo.tests" depends="register.custom.compilers,compile.module.alipushdemo.production" description="compile module alipushdemo; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.alipushdemo" description="cleanup module">
+    <delete dir="${alipushdemo.output.dir}"/>
+    <delete dir="${alipushdemo.testoutput.dir}"/>
+  </target>
+</project>
